@@ -1,0 +1,36 @@
+{
+  "name": "penh",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "keywords": [],
+  "author": "iguyn12@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "@vitejs/plugin-react": "^1.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rollup-plugin-chrome-extension": "^4.0.1-16",
+    "typescript": "^4.5.5",
+    "vite": "^2.8.4"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^1.1.7",
+    "@chakra-ui/react": "^1.8.5",
+    "@emotion/babel-plugin": "^11.7.2",
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
+    "@types/chrome": "^0.0.178",
+    "@vespaiach/axios-fetch-adapter": "^0.1.1",
+    "axios": "^0.26.0",
+    "cheerio": "^1.0.0-rc.10",
+    "framer-motion": "^6.2.7",
+    "is-whitespace-character": "^2.0.1",
+    "nanoid": "^3.3.1",
+    "regenerator-runtime": "^0.13.9"
+  }
+}

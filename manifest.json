@@ -1,0 +1,34 @@
+{
+    "name": "peNH",
+    "description": "Easy to decode 6-digit number :3",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "src/background.ts"
+    },
+    "permissions": [
+        "tabs"
+    ],
+    "action": {
+        "default_icon": {
+            "16": "assets/penh16.png",
+            "24": "assets/penh24.png",
+            "32": "assets/penh32.png"
+        }
+    },
+    "icons": {
+        "16": "assets/penh16.png",
+        "24": "assets/penh24.png",
+        "32": "assets/penh32.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "src/content-script/main.tsx"
+            ]
+        }
+    ]
+}
