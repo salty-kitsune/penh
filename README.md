@@ -18,7 +18,7 @@ _TBD_
 
 ## How to Use
 
-To use this extension, just load the unpacked assets of this extension to your Chromium Browser. You can follow this [instruction](https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked).
+To use this extension, you can download the unpacked extension from [Release](https://github.com/salty-kitsune/penh/releases) page, or follow [How to Build](#how-to-build) to build it from scratch. After that, just load the unpacked assets of this extension to your Chromium Browser. For further information you can checkout this [instruction](https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked) to installing unpacked extension.
 
 ## How to Build
 
