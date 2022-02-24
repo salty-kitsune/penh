@@ -10,13 +10,19 @@
 
 ## Demo
 
-_TBD_
+<p align="center">
+    <img src="./__DOC_ASSETS/images/demo.gif" alt="Demo" style="max-height:400px" />
+</p>
 
 ## Screenshot
 
 <img src="./__DOC_ASSETS/images/screenshot.png" alt="Dropdown appears when highlighting 6-digit number :3." width="300"/>
 
 ## How to Use
+
+Just highlight any 6-digit number and voila!!. Mystery solved.
+
+## How to Install
 
 To use this extension, you can download the unpacked extension from [Release](https://github.com/salty-kitsune/penh/releases) page, or follow [How to Build](#how-to-build) to build it from scratch. After that, just load the unpacked assets of this extension to your Chromium Browser. For further information you can checkout this [instruction](https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked) to installing unpacked extension.
 
