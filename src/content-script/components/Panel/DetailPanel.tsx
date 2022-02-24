@@ -57,6 +57,8 @@ const _DetailPanel = ({
               key={tag.name}
               as={Link}
               href={tag.href}
+              target="_blank"
+              rel="noopener"
               size="md"
               _hover={{
                 textDecoration: 'none',
@@ -72,6 +74,8 @@ const _DetailPanel = ({
           colorScheme="pink"
           size="lg"
           href={`${NUCLEAR_HOST}/g/${nuclearCode}`}
+          target="_blank"
+          rel="noopener"
           _hover={{
             textDecoration: 'none',
           }}

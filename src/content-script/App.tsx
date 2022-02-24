@@ -10,9 +10,11 @@ import {
 import { isWhitespaceCharacter } from 'is-whitespace-character';
 import Panel from './components/Panel';
 import isNuclearCode from '../utils/isNuclearCode';
+import getHighestZindex from '../utils/getHighestZIndex';
 
 const App = () => {
   const [text, setText] = useState('');
+  const [zIndex, setZIndex] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const popperRefTemp = useRef<HTMLDivElement | null>(null);
   const [position, setPosition] = useState({
@@ -37,8 +39,10 @@ const App = () => {
     const { height, width, x, y } = selection!
       .getRangeAt(0)
       .getBoundingClientRect();
-    setPosition({ height, width, x, y });
+    const highestZIndex = getHighestZindex();
 
+    setPosition({ height, width, x, y });
+    setZIndex(highestZIndex + 10);
     setText(selectionText!);
     onOpen();
   };
@@ -81,6 +85,7 @@ const App = () => {
               width="auto"
               overflow="hidden"
               background="none"
+              zIndex={zIndex || 'auto'}
               _focus={{
                 boxShadow: 'none',
               }}
