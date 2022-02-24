@@ -6,14 +6,14 @@ import {
   Link,
   TagLabel,
   Button,
-} from "@chakra-ui/react";
-import styled from "@emotion/styled";
-import { useMemo } from "react";
+} from '@chakra-ui/react';
+import styled from '@emotion/styled';
+import { useMemo } from 'react';
 import {
   DecodeData,
   deserializeArrayBufferFromJSON,
-} from "../../../utils/decode";
-import { NUCLEAR_HOST } from "../../../utils/isNuclearCode";
+} from '../../../utils/decode';
+import { NUCLEAR_HOST } from '../../../utils/isNuclearCode';
 
 interface DetailPanelProps {
   nuclearCode: string;
@@ -59,7 +59,7 @@ const _DetailPanel = ({
               href={tag.href}
               size="md"
               _hover={{
-                textDecoration: "none",
+                textDecoration: 'none',
               }}
             >
               <TagLabel>{tag.name}</TagLabel>
@@ -73,7 +73,7 @@ const _DetailPanel = ({
           size="lg"
           href={`${NUCLEAR_HOST}/g/${nuclearCode}`}
           _hover={{
-            textDecoration: "none",
+            textDecoration: 'none',
           }}
         >
           Visit

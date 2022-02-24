@@ -1,6 +1,6 @@
 export const DECODE_RESULT = {
-  SUCCESS: "SUCCESS",
-  FAILED: "FAILED",
+  SUCCESS: 'SUCCESS',
+  FAILED: 'FAILED',
 };
 
 export type Title = {

@@ -1,6 +1,6 @@
-import { Box, Heading, Text, Link } from "@chakra-ui/react";
-import { WarningTwoIcon } from "@chakra-ui/icons";
-import styled from "@emotion/styled";
+import { Box, Heading, Text, Link } from '@chakra-ui/react';
+import { WarningTwoIcon } from '@chakra-ui/icons';
+import styled from '@emotion/styled';
 
 interface FailedPanelProps {
   className?: string;
@@ -14,20 +14,20 @@ const FailedPanel = ({ className }: FailedPanelProps) => {
         Failed to Fetch
       </Heading>
       <Text textAlign="center">
-        Make sure the connection to{" "}
+        Make sure the connection to{' '}
         <Link color="pink.400" href="https://nhentai.net">
           NHentai
-        </Link>{" "}
+        </Link>{' '}
         is not being blocked.
       </Text>
       <Text textAlign="center">
-        You can use VPN or enable{" "}
+        You can use VPN or enable{' '}
         <Link
           color="pink.400"
           href="https://developers.cloudflare.com/1.1.1.1/encrypted-dns/dns-over-https/encrypted-dns-browsers#google-chrome"
         >
           DNS over HTTPS
-        </Link>{" "}
+        </Link>{' '}
         in the browser.
       </Text>
     </Box>

@@ -1,17 +1,10 @@
-import {
-  Box,
-  CircularProgress,
-  Heading,
-  Text,
-  theme,
-  useBoolean,
-} from "@chakra-ui/react";
-import { LegacyRef, useEffect, useState } from "react";
-import styled from "@emotion/styled";
-import { Message, MESSAGE_TYPE } from "../../../utils/message";
-import { DecodeResult, DECODE_RESULT } from "../../../utils/decode";
-import DetailPanel from "./DetailPanel";
-import FailedPanel from "./FailedPanel";
+import { Box, CircularProgress, theme, useBoolean } from '@chakra-ui/react';
+import { LegacyRef, useEffect, useState } from 'react';
+import styled from '@emotion/styled';
+import { Message, MESSAGE_TYPE } from '../../../utils/message';
+import { DecodeResult, DECODE_RESULT } from '../../../utils/decode';
+import DetailPanel from './DetailPanel';
+import FailedPanel from './FailedPanel';
 
 const StyledBox = styled(Box)`
   width: 300px;

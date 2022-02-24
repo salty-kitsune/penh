@@ -1,19 +1,19 @@
-import "regenerator-runtime";
-import * as cheerio from "cheerio";
-import axios, { AxiosPromise } from "axios";
-import fetchAdapter from "@vespaiach/axios-fetch-adapter";
-import { Message, MESSAGE_TYPE } from "./utils/message";
+import 'regenerator-runtime';
+import * as cheerio from 'cheerio';
+import axios, { AxiosPromise } from 'axios';
+import fetchAdapter from '@vespaiach/axios-fetch-adapter';
+import { Message, MESSAGE_TYPE } from './utils/message';
 import {
   DecodeResult,
   DECODE_RESULT,
   serializeArrayBufferToJSON,
   Tag,
-} from "./utils/decode";
-import { NUCLEAR_HOST } from "./utils/isNuclearCode";
+} from './utils/decode';
+import { NUCLEAR_HOST } from './utils/isNuclearCode';
 
 chrome.action.onClicked.addListener(() => {
   chrome.tabs.create({
-    url: "https://github.com/salty-kitsune/penh",
+    url: 'https://github.com/salty-kitsune/penh',
   });
 });
 
@@ -41,21 +41,21 @@ async function decodeNuclearCode(
     );
 
     const $dom = cheerio.load(scrapResult.data);
-    const $coverBlock = $dom("#cover");
-    const $infoBlock = $dom("#info");
-    const $tagsBlock = $dom("#tags");
+    const $coverBlock = $dom('#cover');
+    const $infoBlock = $dom('#info');
+    const $tagsBlock = $dom('#tags');
 
-    const coverSource = $coverBlock.find("img").data().src as string;
+    const coverSource = $coverBlock.find('img').data().src as string;
 
-    const title = $infoBlock.find("h1.title");
-    const subtitle = $infoBlock.find("h2.title");
+    const title = $infoBlock.find('h1.title');
+    const subtitle = $infoBlock.find('h2.title');
 
-    const tagElements = $tagsBlock.find("a.tag");
+    const tagElements = $tagsBlock.find('a.tag');
 
     const tags: Tag[] = [];
     tagElements.each((_, tagElement) => {
       const href = `${NUCLEAR_HOST}/${tagElement.attribs.href}`;
-      const name = $dom(tagElement).children("span.name").text();
+      const name = $dom(tagElement).children('span.name').text();
 
       tags.push({
         href,
@@ -65,26 +65,26 @@ async function decodeNuclearCode(
 
     const { data: coverBuffer, headers } = await (axios(coverSource, {
       adapter: fetchAdapter,
-      responseType: "arraybuffer",
+      responseType: 'arraybuffer',
     }) as AxiosPromise<ArrayBuffer>);
 
     const imageDataView = serializeArrayBufferToJSON(
       coverBuffer,
-      headers["content-type"]
+      headers['content-type']
     );
 
     return {
       status: DECODE_RESULT.SUCCESS,
       data: {
         title: {
-          after: title.children(".after").text(),
-          before: title.children(".before").text(),
-          pretty: title.children(".pretty").text(),
+          after: title.children('.after').text(),
+          before: title.children('.before').text(),
+          pretty: title.children('.pretty').text(),
         },
         subtitle: {
-          after: subtitle.children(".after").text(),
-          before: subtitle.children(".before").text(),
-          pretty: subtitle.children(".pretty").text(),
+          after: subtitle.children('.after').text(),
+          before: subtitle.children('.before').text(),
+          pretty: subtitle.children('.pretty').text(),
         },
         cover: {
           data: imageDataView,
