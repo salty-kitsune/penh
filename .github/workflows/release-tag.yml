@@ -1,0 +1,57 @@
+name: Release Tag
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3.0.0
+        with:
+          node-version: 16.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build extension
+        run: npm run build
+
+      - name: Cache data
+        id: cache-data
+        uses: actions/cache@v2
+        with:
+          path: ./*
+          key: ${{ github.sha }}
+
+  release:
+    runs-on: ubuntu-latest
+    needs: [build]
+    env:
+      package_name: penh-${{ github.ref_name }}
+    steps:
+      - name: Reuse "Build" jobs cache
+        uses: actions/cache@v2
+        with:
+          path: ./*
+          key: ${{ github.sha }}
+
+      - name: Install Zip
+        uses: montudor/action-zip@v1
+
+      - name: Zip build assets
+        working-directory: dist
+        run: zip -qq -r ${{ env.package_name }}.zip .
+
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: 'dist/${{ env.package_name }}.zip'
+          token: ${{ secrets.GITHUB_TOKEN }}
