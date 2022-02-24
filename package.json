@@ -6,7 +6,7 @@
     "build": "tsc && vite build"
   },
   "keywords": [],
-  "author": "iguyn12@gmail.com",
+  "author": "salty.kitsun3@gmail.com",
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^17.0.39",
@@ -15,7 +15,6 @@
     "@typescript-eslint/parser": "^5.12.1",
     "@vitejs/plugin-react": "^1.2.0",
     "eslint": "^8.9.0",
-    "eslint-config-airbnb-typescript": "^16.1.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-react": "^7.28.0",
     "prettier": "^2.5.1",
@@ -39,5 +38,9 @@
     "is-whitespace-character": "^2.0.1",
     "nanoid": "^3.3.1",
     "regenerator-runtime": "^0.13.9"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
   }
 }
