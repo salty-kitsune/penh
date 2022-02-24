@@ -10,11 +10,9 @@ import {
 import { isWhitespaceCharacter } from 'is-whitespace-character';
 import Panel from './components/Panel';
 import isNuclearCode from '../utils/isNuclearCode';
-import getHighestZindex from '../utils/getHighestZIndex';
 
 const App = () => {
   const [text, setText] = useState('');
-  const [zIndex, setZIndex] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const popperRefTemp = useRef<HTMLDivElement | null>(null);
   const [position, setPosition] = useState({
@@ -39,10 +37,8 @@ const App = () => {
     const { height, width, x, y } = selection!
       .getRangeAt(0)
       .getBoundingClientRect();
-    const highestZIndex = getHighestZindex();
 
     setPosition({ height, width, x, y });
-    setZIndex(highestZIndex + 10);
     setText(selectionText!);
     onOpen();
   };
@@ -60,6 +56,10 @@ const App = () => {
     document.addEventListener('pointerup', handleOnPointerUp);
     document.addEventListener('pointerdown', handleOnPointerDown);
 
+    if (isOpen && popperRefTemp.current) {
+      popperRefTemp.current.parentElement!.style.zIndex = '1500';
+    }
+
     return () => {
       document.removeEventListener('pointerup', handleOnPointerUp);
       document.removeEventListener('pointerdown', handleOnPointerDown);
@@ -69,34 +69,29 @@ const App = () => {
   return (
     <Portal>
       <Popover isOpen={isOpen} isLazy>
-        {() => (
-          <>
-            <PopoverTrigger>
-              <Box
-                position="absolute"
-                top={`calc(${position.y}px + ${window.scrollY}px + 1rem / 2)`}
-                left={position.x + position.width / 2}
-              />
-            </PopoverTrigger>
+        <PopoverTrigger>
+          <Box
+            position="absolute"
+            top={`calc(${position.y}px + ${window.scrollY}px + 1rem / 2)`}
+            left={position.x + position.width / 2}
+          />
+        </PopoverTrigger>
 
-            <PopoverContent
-              ref={popperRefTemp}
-              border="none"
-              width="auto"
-              overflow="hidden"
-              background="none"
-              zIndex={zIndex || 'auto'}
-              _focus={{
-                boxShadow: 'none',
-              }}
-              _focusVisible={{
-                outline: 'none',
-              }}
-            >
-              <Panel text={text} />
-            </PopoverContent>
-          </>
-        )}
+        <PopoverContent
+          ref={popperRefTemp}
+          border="none"
+          width="auto"
+          overflow="hidden"
+          background="none"
+          _focus={{
+            boxShadow: 'none',
+          }}
+          _focusVisible={{
+            outline: 'none',
+          }}
+        >
+          <Panel text={text} />
+        </PopoverContent>
       </Popover>
     </Portal>
   );

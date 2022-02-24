@@ -125,6 +125,19 @@ const DetailPanel = styled(_DetailPanel)`
       display: flex;
       flex-wrap: wrap;
       gap: 0.5em;
+      max-height: 200px;
+      overflow: hidden auto;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+        border-radius: 4px;
+        background-color: rgb(0 0 0 / 10%);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgb(0 0 0 / 20%);
+        border-radius: 4px;
+      }
     }
 
     & > ${StyledButton} {
