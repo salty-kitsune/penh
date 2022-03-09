@@ -1,14 +1,11 @@
 {
     "name": "peNH",
     "description": "Easy to decode 6-digit number :3",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "manifest_version": 3,
     "background": {
         "service_worker": "src/background.ts"
     },
-    "permissions": [
-        "tabs"
-    ],
     "action": {
         "default_icon": {
             "16": "assets/penh16.png",
